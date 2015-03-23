@@ -1,5 +1,5 @@
 
-module.export = function (fc) {
+module.exports = function (fc) {
   var features = fc.features,
       field,
       totalWeight = 0,
@@ -14,14 +14,14 @@ module.export = function (fc) {
   }
 
   //Loop through features to get populate numerator
-  for (var i = 0, i < len; i++){
+  for (var i = 0; i < len; i++){
     coords = features[i].geometry.coordinates;
-    newX+= weight ? (coords[0] * features[i].properties[field]), totalWeight+= features[i].properties[field] : coords[0];
-    newY+= weight ? (coords[1] * features[i].properties[field]), totalWeight+= features[i].properties[field] : coords[1];
+    newX+= field ? ((coords[0] * features[i].properties[field]), totalWeight+= features[i].properties[field]) : coords[0];
+    newY+= field ? ((coords[1] * features[i].properties[field]), totalWeight+= features[i].properties[field]) : coords[1];
   }
 
   //Divied by the total number of features or total weight
-  if (weight){
+  if (field){
     newX = (newX/totalWeight).toFixed(15);
     newY = (newY/totalWeight).toFixed(15);
   }
