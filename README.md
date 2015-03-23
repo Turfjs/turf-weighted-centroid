@@ -14,5 +14,5 @@ Calculates a the mean center (weighted) for all point features in a FeatureColle
 
 | parameter  | type                       | description                                           |
 | ---------- | -------------------------- | ----------------------------------------------------- |
-| `feature collection`| FeatureCollection | input to find mean center                             |
+| `featureCollection`| FeatureCollection | input to find mean center                             |
 | `weight`   | String                     | the parameter that contains weight data               |
