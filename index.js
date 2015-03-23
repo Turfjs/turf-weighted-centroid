@@ -9,15 +9,16 @@ module.exports = function (fc) {
       coords;
 
   //Check if weight argument was set
-  if (arguments[1]){
+  if (arguments[1] && typeof arguments[1] === 'string'){
     field = arguments[1];
   }
 
   //Loop through features to get populate numerator
   for (var i = 0; i < len; i++){
     coords = features[i].geometry.coordinates;
-    newX+= field ? ((coords[0] * features[i].properties[field]), totalWeight+= features[i].properties[field]) : coords[0];
-    newY+= field ? ((coords[1] * features[i].properties[field]), totalWeight+= features[i].properties[field]) : coords[1];
+    newX+= field ? (coords[0] * features[i].properties[field]) : coords[0];
+    newY+= field ? (coords[1] * features[i].properties[field]) : coords[1];
+    totalWeight+= field ? features[i].properties[field] : 0;
   }
 
   //Divied by the total number of features or total weight
