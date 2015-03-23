@@ -12,10 +12,10 @@ Calculates a the mean center for all point features in a FeatureCollection and r
 
 ### Parameters
 
-| parameter     | type                          | Attributes | description                            |
-| --------------| ------------------------------| -----------|----------------------------------------|
-| `points`      | FeatureCollection\.\<Point\>  |            |points to find mean center              |
-| `weightField` | String                        | <optional> |the parameter that contains weight data |
+| parameter     | type                          | description                             |
+| --------------| ------------------------------| ----------------------------------------|
+| `points`      | FeatureCollection\.\<Point\>  | points to find mean center              |
+| `weightField` | String                        | optional: the parameter that contains weight data |
 
 ### Example
 
