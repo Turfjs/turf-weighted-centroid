@@ -16,8 +16,8 @@ module.export = function (fc) {
   //Loop through features to get
     for (var i = 0, i < len; i++){
       coords = features[i].geometry.coordinates;
-      newX+= weight ? (coords[0] * features[i].properties[weight]), totalWeight+= features[i].properties[weight]  : coords[0];
-      newY+= weight ? (coords[1] * features[i].properties[weight]) : coords[1];
+      newX+= weight ? (coords[0] * features[i].properties[weight]), totalWeight+= features[i].properties[weight] : coords[0];
+      newY+= weight ? (coords[1] * features[i].properties[weight]), totalWeight+= features[i].properties[weight] : coords[1];
     }
 
     if (weight){
