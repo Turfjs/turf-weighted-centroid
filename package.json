@@ -1,0 +1,31 @@
+{
+  "name": "turf-mean-center",
+  "version": "0.0.0",
+  "description": "calculate mean (weighted) center",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cwhite911/turf-mean-center.git"
+  },
+  "keywords": [
+    "turf",
+    "gis",
+    "mean",
+    "center"
+  ],
+  "author": "Corey White",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwhite911/turf-mean-center/issues"
+  },
+  "homepage": "https://github.com/cwhite911/turf-mean-center",
+  "devDependencies": {
+    "tape": "~3.5.0"
+  }
+}
