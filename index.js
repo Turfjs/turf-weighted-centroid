@@ -1,4 +1,78 @@
-
+/**
+ * Takes a {@link FeatureCollection} and returns the mean center.
+ *
+ * @module turf/mean-center
+ * @category transformation
+ * @param {FeatureCollection<Point>} points to generate mean center
+ * @param {String} parameter with weight
+ * @return {FeatureCollection} of mean center
+ * @example
+ *  var fc = {
+ *    "type": "FeatureCollection",
+ *    "features": [
+ *    {
+ *      "type": "Feature",
+ *      "properties": {
+ *          "weight": 0.5
+ *      },
+ *      "geometry": {
+ *        "type": "Point",
+ *        "coordinates": [
+ *          -71.0121549591422,
+ *          32.4197873440115
+ *        ]
+ *      }
+ *    },
+ *    {
+ *      "type": "Feature",
+ *      "properties": {
+ *        "weight": 0.3
+ *      },
+ *      "geometry": {
+ *        "type": "Point",
+ *        "coordinates": [
+ *          -78.662109375,
+ *          35.79999392988527
+ *        ]
+ *      }
+ *    },
+ *    {
+ *      "type": "Feature",
+ *      "properties": {
+ *        "weight": 0.15
+ *      },
+ *      "geometry": {
+ *        "type": "Point",
+ *        "coordinates": [
+ *          -78.90380859375,
+ *          32.58384932565662
+ *        ]
+ *      }
+ *    },
+ *    {
+ *      "type": "Feature",
+ *      "properties": {
+ *        "weight": 0.05
+ *      },
+ *      "geometry": {
+ *       "type": "Point",
+ *        "coordinates": [
+ *          -74.8854720108211,
+ *          32.58384932565662
+ *        ]
+ *      }
+ *    }
+ *  ]
+ *}
+ * var field = 'weight';
+ *
+ * var center = turf.meanCenter(
+ *  fc, field);
+ *
+ * //=center
+ *
+ * //=meanCenter
+ */
 module.exports = function (fc) {
   var features = fc.features,
       field,
@@ -13,7 +87,7 @@ module.exports = function (fc) {
     field = arguments[1];
   }
 
-  //Loop through features to get populate numerator
+  //Loop through features to populate numerator
   for (var i = 0; i < len; i++){
     coords = features[i].geometry.coordinates;
     newX+= field ? (coords[0] * features[i].properties[field]) : coords[0];
