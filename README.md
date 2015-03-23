@@ -5,17 +5,17 @@
 turf mean center module
 
 
-### `turf.mean-center(featureCollection, weight)`
+### `turf.mean-center(points, weightField)`
 
 Calculates a the mean center for all point features in a FeatureCollection and returns a new feature representing the mean center.
 
 
 ### Parameters
 
-| parameter          | type                          | description                                           |
-| ------------------ | ------------------------------| ----------------------------------------------------- |
-| `points`           | FeatureCollection\.\<Point\>  | points to find mean center                            |
-| `weightField`      | String                        | the parameter that contains weight data               |
+| parameter     | type                          | Attributes | description                            |
+| --------------| ------------------------------| -----------|----------------------------------------|
+| `points`      | FeatureCollection\.\<Point\>  |            |points to find mean center              |
+| `weightField` | String                        | <optional> |the parameter that contains weight data |
 
 ### Example
 
