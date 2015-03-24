@@ -1,7 +1,7 @@
 /**
  * Takes a {@link FeatureCollection} and returns the mean center.
  *
- * @module turf/mean-center
+ * @module turf/weighted-centroid
  * @category transformation
  * @param {FeatureCollection<Point>} points to generate mean center
  * @param {String} parameter with weight
@@ -66,12 +66,12 @@
  *}
  * var field = 'weight';
  *
- * var center = turf.meanCenter(
+ * var center = turf.weightedCentroid(
  *  fc, field);
  *
- * //=center
+ * //=return
  *
- * //=meanCenter
+ *
  */
 module.exports = function (fc) {
   var features = fc.features,

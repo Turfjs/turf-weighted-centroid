@@ -1,11 +1,11 @@
-# turf-mean-center
+# turf-weighted-centroid
 
 
 
-turf mean center module
+turf weighted centroid module
 
 
-### `turf.mean-center(points, weightField)`
+### `turf.weighted-centroid(points, weightField)`
 
 Calculates a the mean center for all point features in a FeatureCollection and returns a new feature representing the mean center.
 
@@ -78,10 +78,10 @@ var points = {
   ]
 };
 
-var center = turf.meanCenter(
+var center = turf.weightedCentroid(
   fc, 'weight');
 
-//=center
+//=return
 ```
 
 **Returns** `FeatureCollection.<Point>`, point at the mean center
