@@ -27,5 +27,8 @@
   "homepage": "https://github.com/cwhite911/turf-weighted-centroid",
   "devDependencies": {
     "tape": "~3.5.0"
+  },
+  "dependencies": {
+    "turf-point": "^2.0.1"
   }
 }

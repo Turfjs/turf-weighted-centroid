@@ -1,3 +1,5 @@
+var point = require('turf-point');
+
 /**
  * Takes a {@link FeatureCollection} and returns the mean center.
  *
@@ -70,51 +72,17 @@
  *  fc, field);
  *
  * //=return
- *
- *
  */
-module.exports = function (fc) {
-  var features = fc.features,
-      field,
-      totalWeight = 0,
-      len = features.length,
-      newX = 0,
-      newY = 0,
-      coords;
-
-  //Check if weight argument was set
-  if (arguments[1] && typeof arguments[1] === 'string'){
-    field = arguments[1];
-  }
-
-  //Loop through features to populate numerator
+module.exports = function (fc, weightField) {
+  var features = fc.features, totalWeight = 0, len = features.length, xSum = 0, ySum = 0, coords;
   for (var i = 0; i < len; i++){
     coords = features[i].geometry.coordinates;
-    newX+= field ? (coords[0] * features[i].properties[field]) : coords[0];
-    newY+= field ? (coords[1] * features[i].properties[field]) : coords[1];
-    totalWeight+= field ? features[i].properties[field] : 0;
+    xSum+= coords[0] * features[i].properties[weightField];
+    ySum+= coords[1] * features[i].properties[weightField];
+    totalWeight+= features[i].properties[weightField];
   }
-
-  //Divied by the total number of features or total weight
-  if (field){
-    newX = (newX/totalWeight).toFixed(15);
-    newY = (newY/totalWeight).toFixed(15);
-  }
-  else {
-    newX = (newX/len).toFixed(15);
-    newY = (newY/len).toFixed(15);
-  }
-
-  //Setup featureCollection to be returned
-  fc.features = [{
-    "type": "Feature",
-    "properties": {},
-    "geometry": {
-      "type": "Point",
-      "coordinates": [newX, newY]
-    }
-  }];
-
-  return fc;
+  xSum = xSum / totalWeight;
+  ySum = ySum / totalWeight;
+  return point([xSum, ySum]);
 
 }
